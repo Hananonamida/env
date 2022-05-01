@@ -1,0 +1,8 @@
+FROM debian:buster-slim
+RUN cd /tmp && \
+apt update && \
+apt full-upgrade -y && \
+apt install wget libglib2.0-0 netbase -y && \
+wget https://update.u.is/downloads/uam/linux/uam-latest_amd64.deb && \
+dpkg -i /tmp/uam-latest_amd64.deb
+CMD /opt/uam/uam --pk EF175331043775C45C793B33D79ADADD42EF0EB6DDD38A8573DC83262B5A6C3A --no-ui
